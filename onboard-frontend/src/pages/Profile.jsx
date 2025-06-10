@@ -21,7 +21,11 @@ export default function Profile() {
   }, []);
 
   const fetchProfile = async (id) => {
-    const { data } = await supabase.from('profiles').select('*').eq('id', id).single();
+    const { data } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', id)
+      .single();
     if (data) setForm(data);
   };
 
@@ -32,7 +36,9 @@ export default function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { error } = await supabase.from('profiles').upsert({ id: userId, ...form });
+    const { error } = await supabase
+      .from('profiles')
+      .upsert({ id: userId, ...form });
     if (!error) alert('Profile saved successfully');
   };
 
