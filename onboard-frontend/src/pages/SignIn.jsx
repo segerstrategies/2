@@ -1,1 +1,1 @@
-export default function Page() { return <div>Placeholder Page</div>; }
+export default function SignIn() { return <div>Sign In</div>; }
